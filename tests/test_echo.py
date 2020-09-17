@@ -71,7 +71,9 @@ class TestEcho(unittest.TestCase):
     def test_parser_namespace(self):
         p = self.module.create_parser()
         ns = p.parse_args(['-l', 'HELLO WORLD'])
-        
+        self.assertEqual(ns.upper and ns.title, False)
+        self.assertEqual(ns.lower, True)
+        self.assertEqual(ns.text.lower(), 'hello world')
 
     def test_echo(self):
         """Check if main() function prints anything at all"""
