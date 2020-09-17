@@ -124,9 +124,9 @@ class TestEcho(unittest.TestCase):
         self.assertEqual("Hello World", output[0])
 
     def test_multiple_options(self):
-        args = ["--tul", 'heLLo!']
+        args = ["-tul", 'heLLo!']
         output = run_capture(self.module.__file__, args)
-        self.assertEqual(output[0], "Hello!")
+        self.assertEqual("Hello!", output[0])
 
     def test_help_message(self):
         with open('USAGE') as f:

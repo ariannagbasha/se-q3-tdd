@@ -29,16 +29,17 @@ def main(args):
         parser.print_usage()
         sys.exit(1)
         return
-    final_text_transformation = ''
     text = ns.text
+    final_text = text
+    # print(str(text))
     if ns.upper:
-        final_text_transformation = text.upper()
-    elif ns.lower:
-        final_text_transformation = text.lower()
-    elif ns.title:
-        final_text_transformation = text.title()
-    else:
-        final_text_transformation = text
-    print(final_text_transformation)
+        final_text = text.upper()
+    if ns.lower:
+        final_text = text.lower()
+    if ns.title:
+        final_text = text.title()
+
+    print(final_text)
+
 if __name__ == '__main__':
     main(sys.argv[1:])
