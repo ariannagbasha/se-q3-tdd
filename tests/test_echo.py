@@ -93,7 +93,7 @@ class TestEcho(unittest.TestCase):
         """Check if short option '-l' performs lowercasing"""
         args = ["-l", "HELLO WORLD"]
         output = run_capture(self.module.__file__, args)
-        self.assertEqual("hello world", output[0])
+        self.assertEqual(output[0], "hello world")
 
     #
     # Students: add more cmd line options tests below.
@@ -103,7 +103,7 @@ class TestEcho(unittest.TestCase):
     def test_lower_long(self):
         args = ["--lower", "HELLO WORLD"]
         output = run_capture(self.module.__file__, args)
-        self.assertEqual( "hello world", output[0])
+        self.assertEqual("hello world", output[0])
 
     def test_upper_short(self):
         args = ["-u", "Hello World"]
@@ -133,7 +133,7 @@ class TestEcho(unittest.TestCase):
     def test_help_message(self):
         with open('USAGE') as f:
             expected = f.read().splitlines()
-        output = run_capture(self.module.__file__,['-h'])
+        output = run_capture(self.module.__file__, ['-h'])
         self.assertEqual(output, expected)
 
     #
